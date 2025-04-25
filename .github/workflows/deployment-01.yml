@@ -28,7 +28,7 @@ jobs:
       - name: execute test
         run: npm test
   deployment:
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Get code
         uses: actions/checkout@v3
