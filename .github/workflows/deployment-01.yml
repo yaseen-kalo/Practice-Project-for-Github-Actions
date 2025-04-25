@@ -1,0 +1,58 @@
+name: deployment-01
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: Install dependencies
+        run: npm install
+      - name: execute Lint
+        run: npm run lint
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: Install dependencies
+        run: npm ci
+      - name: execute test
+        run: npm test
+  deployment:
+    runs-on: unbuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: Install dependencies
+        run: npm ci
+      - name: Build before deploy
+        run: npm run build
+      - name: Deploy to production
+        run: |
+          echo "Deploying to production server..."
+          echo "Deployment started!"
+          echo "Building the project..."
+          echo "Build completed!"
+          echo "Transferring files to the server..."
+          echo "Files transferred!"
+          echo "Running deployment scripts..."
+          echo "Deployment scripts executed!"
+          echo "Cleaning up..."
+          echo "Cleanup completed!"
+          # Add your deployment commands here
+          # For example, using rsync or scp to transfer files to the server
+          # rsync -avz ./dist/ user@your-server:/path/to/deploy/
+          echo "Deployment to production server completed!"
