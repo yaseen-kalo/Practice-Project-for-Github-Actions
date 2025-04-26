@@ -1,4 +1,5 @@
-name: deployment-01
+name: lint-test-deployment-sequential
+# This workflow runs linting, testing, and deployment sequentially.
 on: [push, workflow_dispatch]
 jobs:
   lint:
