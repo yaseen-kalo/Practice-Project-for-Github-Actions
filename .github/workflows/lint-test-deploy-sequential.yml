@@ -1,6 +1,6 @@
 name: lint-test-deployment-sequential
 # This workflow runs linting, testing, and deployment sequentially.
-on: [push, workflow_dispatch]
+on: [push]
 jobs:
   lint:
     runs-on: ubuntu-latest
