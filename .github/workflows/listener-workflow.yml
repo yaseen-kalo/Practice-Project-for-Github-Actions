@@ -8,6 +8,7 @@ jobs:
     steps:
       - name: Print issue info
         run: |
+          echo "${{toJson(github.event)}}"
           echo "Issue Title: ${{ github.event.issue.title }}"
           echo "Issue Body: ${{ github.event.issue.body }}"
           echo "Issue State: ${{ github.event.issue.state }}"
